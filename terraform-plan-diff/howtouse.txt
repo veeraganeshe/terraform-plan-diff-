@@ -1,0 +1,3 @@
+python parse-plan.py plan-files/dbx-outputplan.txt --env dbx
+python parse-plan.py plan-files/lambda-outputplan.txt --env lambda
+python parse-plan.py plan-files/cw-outputplan.txt --env cloudwatch
