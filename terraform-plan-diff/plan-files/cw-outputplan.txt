@@ -1,1 +1,1561 @@
-added summy cw plan txt file
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-d4u-marvel-web-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-d4u-marvel-web-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "d4u-marvel-web"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-datareview-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-datareview-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-datareview-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-flags-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-flags-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-flags-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-flags-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-flags-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-flags-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-inquiry-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-inquiry-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-inquiry-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-inquiry-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-inquiry-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-inquiry-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-inquiry-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-inquiry-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-inquiry-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-rave-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-rave-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-rave-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-rave-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-rave-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-rave-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-ref-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-ref-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-ref-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-review-requirements-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-review-requirements-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-review-requirements-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-rr-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-rr-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-rr-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-studies-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-studies-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-studies-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-studies-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-studies-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-studies-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-study-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-study-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-study-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-task-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-task-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-task-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-tasks-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-tasks-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-tasks-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-tasks-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-tasks-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-tasks-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-user-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-user-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-user-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-user-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-user-bff-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+[O          + "PodName"     = "marvel-user-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-visualization-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-visualization-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-visualization-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-viz-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-viz-update-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-viz-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-review-requirement-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-review-requirement-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "review-requirement-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "pod_cpu_utilization"
+      + namespace                             = "ContainerInsights"
+      + period                                = 30
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 18.75
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-d4u-web-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-d4u-web-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "d4u-marvel-web"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-datareview-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-datareview-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-datareview-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-flags-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-flags-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-flags-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-flags-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-flags-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-flags-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-inquiry-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-inquiry-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-inquiry-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-inquiry-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-inquiry-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+[I          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-inquiry-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-inquiry-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-inquiry-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-inquiry-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-rave-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-rave-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-rave-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-rave-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+[O      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-rave-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-rave-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-ref-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-ref-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-ref-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-review-requirement-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-review-requirement-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "review-requirement-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-review-requirements-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-review-requirements-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-review-requirements-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-rr-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-rr-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-rr-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-studies-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-studies-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-studies-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-studies-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-studies-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-studies-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-study-update-api-pod-counalarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-study-update-api-pod-counalarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-study-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-task-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-task-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-task-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-tasks-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-tasks-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-tasks-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-tasks-bff-pod-count-alarm"] will be created
+[I  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-tasks-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-tasks-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-user-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-user-bff-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-user-bff"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-visualization-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-visualization-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-visualization-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-viz-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = (known after apply)
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-viz-update-api-pod-count-alarm"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dqo-eks-development"
+          + "Namespace"   = "marvel"
+          + "Service"     = "marvel-viz-update-api"
+        }
+      + evaluate_low_sample_count_percentiles = (known after apply)
+      + evaluation_periods                    = 1
+      + id                                    = (known after apply)
+      + metric_name                           = "service_number_of_running_pods"
+      + namespace                             = "ContainerInsights"
+      + period                                = 60
+      + statistic                             = "Average"
+      + tags_all                              = (known after apply)
+      + threshold                             = 1
+      + treat_missing_data                    = "missing"
+    }
+
+  # aws_iam_policy_attachment.policy-attachment["arn:aws:iam::aws:policy/AmazonEC2FullAccess"] will be created
+  + resource "aws_iam_policy_attachment" "policy-attachment" {
+      + id         = (known after apply)
+      + name       = "role-policy-atttach-eks"
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
+      + roles      = [
+          + "itx-dqo-marvel-eks-alarm",
+        ]
+    }
+
+  # aws_iam_policy_attachment.policy-attachment["arn:aws:iam::aws:policy/AmazonSNSReadOnlyAccess"] will be created
+  + resource "aws_iam_policy_attachment" "policy-attachment" {
+      + id         = (known after apply)
+      + name       = "role-policy-atttach-eks"
+      + policy_arn = "arn:aws:iam::aws:policy/AmazonSNSReadOnlyAccess"
+      + roles      = [
+          + "itx-dqo-marvel-eks-alarm",
+        ]
+    }
+
+  # aws_iam_role.marvel-alarm-notification will be created
+  + resource "aws_iam_role" "marvel-alarm-notification" {
+      + arn                   = (known after apply)
+      + assume_role_policy    = jsonencode(
+            {
+              + Statement = [
+                  + {
+                      + Action    = "sts:AssumeRole"
+                      + Effect    = "Allow"
+                      + Principal = {
+                          + Service = "lambda.amazonaws.com"
+                        }
+                    },
+                ]
+              + Version   = "2012-10-17"
+            }
+        )
+      + create_date           = (known after apply)
+      + force_detach_policies = false
+      + id                    = (known after apply)
+      + managed_policy_arns   = (known after apply)
+      + max_session_duration  = 3600
+      + name                  = "itx-dqo-marvel-eks-alarm"
+      + name_prefix           = (known after apply)
+      + path                  = "/"
+      + permissions_boundary  = "arn:aws:iam::730335244942:policy/itx/core/VpcxPermissionsBoundaryPolicy1"
+      + tags_all              = (known after apply)
+      + unique_id             = (known after apply)
+    }
+
+  # aws_lambda_function.lambda will be created
+  + resource "aws_lambda_function" "lambda" {
+      + architectures                  = (known after apply)
+      + arn                            = (known after apply)
+      + code_sha256                    = (known after apply)
+      + filename                       = "marvel-pods-cpu-notification.zip"
+      + function_name                  = "marvel-eks-cpu-notification"
+      + handler                        = "marvel-pods-cpu-notification.lambda_handler"
+      + id                             = (known after apply)
+      + invoke_arn                     = (known after apply)
+      + last_modified                  = (known after apply)
+      + memory_size                    = 128
+      + package_type                   = "Zip"
+      + publish                        = false
+      + qualified_arn                  = (known after apply)
+      + qualified_invoke_arn           = (known after apply)
+      + reserved_concurrent_executions = -1
+      + role                           = (known after apply)
+      + runtime                        = "python3.9"
+      + signing_job_arn                = (known after apply)
+      + signing_profile_version_arn    = (known after apply)
+      + skip_destroy                   = false
+      + source_code_hash               = "RLyibEQWeNwhOPU7jqtv+IFeYKEwBj8siRYY82krU1E="
+      + source_code_size               = (known after apply)
+      + tags_all                       = (known after apply)
+      + timeout                        = 600
+      + version                        = (known after apply)
+
+      + environment {
+          + variables = {
+              + "EMAIL_RECIPIENTS" = "snandhag@its.jnj.com;NPraman1@ITS.JNJ.com;pkunapar@its.jnj.com;AChaud58@ITS.JNJ.com;JUnger2@ITS.JNJ.com"
+              + "HookUrl"          = "https://dummy.url"
+              + "SENDER"           = "Data4You Admins <data4you_admin@its.jnj.com>"
+            }
+        }
+
+      + vpc_config {
+          + ipv6_allowed_for_dual_stack = false
+          + security_group_ids          = [
+              + "sg-0204304510d8a007b",
+              + "sg-040469d255dd844a2",
+              + "sg-0986880563d7a76e7",
+            ]
+          + subnet_ids                  = [
+              + "subnet-0acbadae0a261635d",
+              + "subnet-0d5812b96d76ee590",
+            ]
+          + vpc_id                      = (known after apply)
+        }
+    }
+
+  # aws_lambda_function.lambda-pod-count will be created
+  + resource "aws_lambda_function" "lambda-pod-count" {
+      + architectures                  = (known after apply)
+      + arn                            = (known after apply)
+      + code_sha256                    = (known after apply)
+      + filename                       = "marvel-pods-service-notification.zip"
+      + function_name                  = "marvel-eks-pod-count-notification"
+      + handler                        = "marvel-pods-service-notification.lambda_handler"
+      + id                             = (known after apply)
+      + invoke_arn                     = (known after apply)
+      + last_modified                  = (known after apply)
+      + memory_size                    = 128
+      + package_type                   = "Zip"
+      + publish                        = false
+      + qualified_arn                  = (known after apply)
+      + qualified_invoke_arn           = (known after apply)
+      + reserved_concurrent_executions = -1
+      + role                           = (known after apply)
+      + runtime                        = "python3.9"
+      + signing_job_arn                = (known after apply)
+      + signing_profile_version_arn    = (known after apply)
+      + skip_destroy                   = false
+      + source_code_hash               = "9M82ZO/me5ie21APLipnIqiUEry5btUp3KY9C8QoQnE="
+      + source_code_size               = (known after apply)
+      + tags_all                       = (known after apply)
+      + timeout                        = 600
+      + version                        = (known after apply)
+
+      + environment {
+          + variables = {
+              + "EMAIL_RECIPIENTS" = "snandhag@its.jnj.com;NPraman1@ITS.JNJ.com;pkunapar@its.jnj.com;AChaud58@ITS.JNJ.com;JUnger2@ITS.JNJ.com"
+              + "HookUrl"          = "https://dummy.url"
+              + "SENDER"           = "Data4You Admins <data4you_admin@its.jnj.com>"
+            }
+        }
+
+      + vpc_config {
+          + ipv6_allowed_for_dual_stack = false
+          + security_group_ids          = [
+              + "sg-0204304510d8a007b",
+              + "sg-040469d255dd844a2",
+              + "sg-0986880563d7a76e7",
+            ]
+          + subnet_ids                  = [
+              + "subnet-0acbadae0a261635d",
+              + "subnet-0d5812b96d76ee590",
+            ]
+          + vpc_id                      = (known after apply)
+        }
+    }
+
+  # aws_lambda_permission.with-sns will be created
+  + resource "aws_lambda_permission" "with-sns" {
+      + action              = "lambda:InvokeFunction"
+      + function_name       = "marvel-eks-cpu-notification"
+      + id                  = (known after apply)
+      + principal           = "sns.amazonaws.com"
+      + source_arn          = (known after apply)
+      + statement_id        = "AllowExecutionFromSNS"
+      + statement_id_prefix = (known after apply)
+    }
+
+  # aws_lambda_permission.with-sns-service will be created
+  + resource "aws_lambda_permission" "with-sns-service" {
+      + action              = "lambda:InvokeFunction"
+      + function_name       = "marvel-eks-pod-count-notification"
+      + id                  = (known after apply)
+      + principal           = "sns.amazonaws.com"
+      + source_arn          = (known after apply)
+      + statement_id        = "AllowExecutionFromSNS"
+      + statement_id_prefix = (known after apply)
+    }
+
+  # aws_sns_topic.marvel-cpu-pod-notification-sns will be created
+  + resource "aws_sns_topic" "marvel-cpu-pod-notification-sns" {
+      + arn                         = (known after apply)
+      + beginning_archive_time      = (known after apply)
+      + content_based_deduplication = false
+      + fifo_topic                  = false
+      + id                          = (known after apply)
+      + name                        = "marvel-eks-cpu-utilisation"
+      + name_prefix                 = (known after apply)
+      + owner                       = (known after apply)
+      + policy                      = (known after apply)
+      + signature_version           = (known after apply)
+      + tags_all                    = (known after apply)
+      + tracing_config              = (known after apply)
+    }
+
+  # aws_sns_topic.marvel-service-pod-notification-sns will be created
+  + resource "aws_sns_topic" "marvel-service-pod-notification-sns" {
+      + arn                         = (known after apply)
+      + beginning_archive_time      = (known after apply)
+      + content_based_deduplication = false
+      + fifo_topic                  = false
+      + id                          = (known after apply)
+      + name                        = "marvel-eks-pod-count"
+      + name_prefix                 = (known after apply)
+      + owner                       = (known after apply)
+      + policy                      = (known after apply)
+      + signature_version           = (known after apply)
+      + tags_all                    = (known after apply)
+      + tracing_config              = (known after apply)
+    }
+
+  # aws_sns_topic_subscription.lambda-alarm-notification will be created
+  + resource "aws_sns_topic_subscription" "lambda-alarm-notification" {
+      + arn                             = (known after apply)
+      + confirmation_timeout_in_minutes = 1
+      + confirmation_was_authenticated  = (known after apply)
+      + endpoint                        = (known after apply)
+      + endpoint_auto_confirms          = false
+      + filter_policy_scope             = (known after apply)
+      + id                              = (known after apply)
+      + owner_id                        = (known after apply)
+      + pending_confirmation            = (known after apply)
+      + protocol                        = "lambda"
+      + raw_message_delivery            = false
+      + topic_arn                       = (known after apply)
+    }
+
+  # aws_sns_topic_subscription.lambda-alarm-notification-service will be created
+  + resource "aws_sns_topic_subscription" "lambda-alarm-notification-service" {
+      + arn                             = (known after apply)
+      + confirmation_timeout_in_minutes = 1
+      + confirmation_was_authenticated  = (known after apply)
+      + endpoint                        = (known after apply)
+      + endpoint_auto_confirms          = false
+      + filter_policy_scope             = (known after apply)
+      + id                              = (known after apply)
+      + owner_id                        = (known after apply)
+      + pending_confirmation            = (known after apply)
+      + protocol                        = "lambda"
+      + raw_message_delivery            = false
+      + topic_arn                       = (known after apply)
+    }
+
+Plan: 58 to add, 0 to change, 0 to destroy.
+AWSDCENVAL0001
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-cpu-utilisation",
+        ]
+      + alarm_description                     = "This metric monitors pods cpu utilization"
+      + alarm_name                            = "marvel-pod-marvel-flags-api-cpu-utilisation"
+      + arn                                   = (known after apply)
+      + comparison_operator                   = "GreaterThanThreshold"
+      + dimensions                            = {
+          + "ClusterName" = "itx-dce-eks-production"
+          + "Namespace"   = "marvel"
+          + "PodName"     = "marvel-flags-api"
+        }
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-bff-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-cpu-utilisation",
+        ]
+        }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-flags-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-cpu-utilisation",
+    }
+
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-rave-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-cpu-utilisation",
+        ]
+      
+  # aws_cloudwatch_metric_alarm.cpu-alarm["marvel-pod-marvel-rave-update-api-cpu-utilisation"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "cpu-alarm" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-cpu-utilisation",
+        ]
+      
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-datareview-bff-pod-count-alarm"] will be updated in-place
+  ~ resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      - datapoints_to_alarm                   = 1 -> null
+        id                                    = "marvel-datareview-bff-pod-count-alarm"
+        tags                                  = {}
+      ~ threshold                             = 4 -> 1
+        # (20 unchanged attributes hidden)
+    }
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-pod-count",
+        ]
+      
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-bff-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-pod-count",
+        ]
+      
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-flags-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-pod-count",
+        ]
+      
+
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-rave-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-pod-count",
+        ]
+      
+  # aws_cloudwatch_metric_alarm.service-alert["marvel-rave-update-api-pod-count-alarm"] will be created
+  + resource "aws_cloudwatch_metric_alarm" "service-alert" {
+      + actions_enabled                       = true
+      + alarm_actions                         = [
+          + "arn:aws:sns:us-east-1:641072088022:marvel-eks-pod-count",
+        ]
+      
+  # aws_lambda_function.lambda will be updated in-place
+  ~ resource "aws_lambda_function" "lambda" {
+        id                             = "marvel-eks-cpu-notification"
+        tags                           = {}
+        # (29 unchanged attributes hidden)
+
+      ~ environment {
+          ~ variables = {
+              ~ "HookUrl"          = "https://jnj.webhook.office.com/webhookb2/83d8594c-ca5e-4e31-beba-e203d5412788@3ac94b33-9135-4821-9502-eafda6592a35/IncomingWebhook/b2066b2822e94ed8b4ab82ae6c7e8ea9/bbacc435-38f9-4970-8e18-80c16cc977b9" -> "https://dummy.url"
+                # (2 unchanged elements hidden)
+            }
+        }
+
+      ~ vpc_config {
+      
+
+  # aws_lambda_function.lambda-pod-count will be updated in-place
+  ~ resource "aws_lambda_function" "lambda-pod-count" {
+        id                             = "marvel-eks-pod-count-notification"
+        tags                           = {}
+        # (29 unchanged attributes hidden)
+
+      ~ environment {
+          ~ variables = {
+              ~ "HookUrl"          = "https://jnj.webhook.office.com/webhookb2/83d8594c-ca5e-4e31-beba-e203d5412788@3ac94b33-9135-4821-9502-eafda6592a35/IncomingWebhook/b2066b2822e94ed8b4ab82ae6c7e8ea9/bbacc435-38f9-4970-8e18-80c16cc977b9" -> "https://dummy.url"
+                # (2 unchanged elements hidden)
+            }
+        }
+
+      ~ vpc_config {
+          ~ security_group_ids          = [
+              - "sg-0a809c4aa796580c6",
+              + "sg-0733572b3d022dbb4",
+      
+        # (3 unchanged blocks hidden)
+    }
+
+Plan: 10 to add, 3 to change, 0 to destroy.
+
