@@ -1,1 +1,148 @@
-lambda-outputplan txt files
+#-> cat lambda-planout.txt
+data.archive_file.zip-cat: Reading...
+data.archive_file.zip12: Reading...
+data.archive_file.zip: Reading...
+data.archive_file.zip11: Reading...
+data.archive_file.zip1: Reading...
+data.archive_file.zip16: Reading...
+data.archive_file.zip9: Reading...
+data.archive_file.zip14: Reading...
+data.archive_file.zip8: Reading...
+data.archive_file.zip16: Read complete after 0s [id=eb85b05a1bc38c629b28707d2d3645e0be0ecde2]
+data.archive_file.zip1: Read complete after 0s [id=d0b2032a5a0f6f129fbd747d57e50976e7f6fe30]
+data.archive_file.zip10: Reading...
+data.archive_file.zip: Read complete after 0s [id=804c79699fc8e78e90b121f6470d9b268eb5cf8d]
+data.archive_file.zip-cat: Read complete after 0s [id=6411c78d337656eb03cc8b8ff8d94599f580a391]
+data.archive_file.zip3: Reading...
+data.archive_file.zip8: Read complete after 0s [id=4fc281990a81095e91be1c6546f9d0902e0e9ba5]
+data.archive_file.zip6: Reading...
+data.archive_file.zip2: Reading...
+data.archive_file.zip5: Reading...
+data.archive_file.zip14: Read complete after 0s [id=2d8b0b0cff35c17b7cead332e2892bb74a48fbe9]
+data.archive_file.zip15: Reading...
+data.archive_file.zip2: Read complete after 0s [id=535065d37b5f4ae3e72137489aa30c0d96c316c1]
+data.archive_file.zip9: Read complete after 0s [id=a4eb1e795132416f4d414caa1c5440d75bf00d16]
+data.archive_file.zip6: Read complete after 0s [id=455da38a34d10bb2c883efc52b9fc586b4497f59]
+data.archive_file.zip5: Read complete after 0s [id=518841715be8a3c889d3821d556ccd5f738d245d]
+data.archive_file.zip3: Read complete after 0s [id=6a7e5350fd6f9299fda57e4ad336062c377a70d7]
+data.archive_file.zip15: Read complete after 0s [id=2680856bf9f9f82b20733a18f8697b44377d8397]
+data.archive_file.zip10: Read complete after 0s [id=ad9c5f6d424bce3f51cc7de62cef1fb2fd44139f]
+data.archive_file.zip11: Read complete after 0s [id=3514aa3ac517e66803bb12ba53cf14359eb3b77d]
+data.archive_file.zip12: Read complete after 0s [id=873d3df5a08e10931f83fc97050390681270f1f6]
+aws_iam_policy.eventbridge: Refreshing state... [id=arn:aws:iam::318140511517:policy/eventbridge-marvel]
+aws_cloudwatch_event_bus.marvel-eventbus: Refreshing state... [id=itx-cer-marvel-eventbus]
+aws_iam_policy.s3-cross-account: Refreshing state... [id=arn:aws:iam::318140511517:policy/marvel-s3-account]
+aws_cloudwatch_event_rule.daily-cron: Refreshing state... [id=itx-cer-daily-trigger-0900cst]
+aws_cloudwatch_log_group.loggroup: Refreshing state... [id=/aws/events/marvel-eventbus-logs]
+aws_lambda_layer_version.lambda_layer_2: Refreshing state... [id=arn:aws:lambda:us-east-1:318140511517:layer:marvel-nodejs-package:5]
+aws_cloudwatch_event_rule.ldap-sync: Refreshing state... [id=marvel-ldap-sync]
+aws_lambda_function.lambda1: Refreshing state... [id=marvel-html-message-formatter]
+data.aws_secretsmanager_secret.databricks: Reading...
+aws_iam_role.marvel-lambda-role: Refreshing state... [id=marvel-services-lambda]
+aws_iam_policy.lambda: Refreshing state... [id=arn:aws:iam::318140511517:policy/lambda-marvel]
+aws_lambda_layer_version.lambda_layer_1: Refreshing state... [id=arn:aws:lambda:us-east-1:318140511517:layer:marvel-psycopg2-python-package:1]
+data.aws_secretsmanager_secret.databricks: Read complete after 0s [id=arn:aws:secretsmanager:us-east-1:318140511517:secret:DATABRICKS-gHSJcF]
+data.aws_secretsmanager_secret_version.appdynamics: Reading...
+aws_lambda_function_event_invoke_config.config-42: Refreshing state... [id=marvel-new-catalog-item]
+aws_lambda_layer_version.lambda_layer: Refreshing state... [id=arn:aws:lambda:us-east-1:318140511517:layer:marvel-python-package:5]
+aws_cloudwatch_event_rule.databricks-job-success: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-databricks-job-success]
+aws_lambda_function_event_invoke_config.config-52: Refreshing state... [id=marvel-study-data-refresh]
+data.aws_secretsmanager_secret_version.appdynamics: Read complete after 0s [id=APPDYNAMICS|AWSCURRENT]
+aws_lambda_function_event_invoke_config.config-24: Refreshing state... [id=marvel-rr-trigger]
+aws_lambda_function_event_invoke_config.config-marvel-spotfire-cache-vizz-sync: Refreshing state... [id=marvel-spotfire-cache-vizz-sync]
+aws_cloudwatch_event_rule.user-auth-events: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-user-auth-events]
+aws_cloudwatch_event_rule.databricks-job-success2: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-databricks-job-success2]
+aws_cloudwatch_event_rule.marvel-eventbus-logs: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-eventbus-logs]
+aws_lambda_function_event_invoke_config.config: Refreshing state... [id=marvel-email-admins]
+aws_lambda_function_event_invoke_config.config-112: Refreshing state... [id=marvel-spotfire-cache-user-sync]
+aws_cloudwatch_event_rule.databricks-job-failure: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-databricks-job-failure]
+aws_lambda_function_event_invoke_config.config-marvel-user-auth-audit: Refreshing state... [id=marvel-user-auth-audit]
+aws_lambda_function_event_invoke_config.config-82: Refreshing state... [id=marvel-data-refresh-notification-update]
+data.aws_iam_policy_document.crossaccount: Reading...
+data.aws_iam_policy_document.crossaccount: Read complete after 0s [id=1334748125]
+aws_cloudwatch_event_rule.marvel-new-catalog-item-rule: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus/marvel-new-catalog-item]
+aws_lambda_function_event_invoke_config.config-62: Refreshing state... [id=marvel-rave-edc-subjects]
+aws_lambda_function_event_invoke_config.config-101: Refreshing state... [id=marvel-duplicate-tasks]
+aws_lambda_function_event_invoke_config.config-92: Refreshing state... [id=marvel-rave-edc-subjects]
+aws_lambda_function_event_invoke_config.config-32: Refreshing state... [id=marvel-set-study-refresh-date]
+aws_lambda_function_event_invoke_config.config-marvel-data-review-records: Refreshing state... [id=marvel-data-review-records]
+data.aws_secretsmanager_secret_version.databricks-current: Reading...
+aws_lambda_permission.allow_cloudwatch-job-success-100: Refreshing state... [id=terraform-20241030063723873000000004]
+aws_lambda_permission.allow_cloudwatch-job-success-61: Refreshing state... [id=terraform-2024103006372553650000000a]
+data.aws_secretsmanager_secret_version.databricks-current: Read complete after 0s [id=arn:aws:secretsmanager:us-east-1:318140511517:secret:DATABRICKS-gHSJcF|AWSCURRENT]
+aws_lambda_permission.allow_cloudwatch-job-success-91: Refreshing state... [id=terraform-20241030135841419500000001]
+aws_lambda_permission.allow_cloudwatch-job-success-111: Refreshing state... [id=terraform-20241030135841559500000005]
+aws_lambda_function.lambda3: Refreshing state... [id=marvel-set-study-refresh-date]
+aws_lambda_function.catalog-item: Refreshing state... [id=marvel-new-catalog-item]
+aws_lambda_function.lambda6: Refreshing state... [id=marvel-rave-edc-subjects]
+aws_lambda_function.lambda8: Refreshing state... [id=marvel-data-refresh-notification-update]
+aws_lambda_function.lambda10: Refreshing state... [id=marvel-duplicate-tasks]
+aws_lambda_permission.allow_cloudwatch-job-success-81: Refreshing state... [id=terraform-20241106155852544300000014]
+aws_iam_policy_attachment.policy3-role-attach: Refreshing state... [id=role-policy-attach]
+aws_iam_policy_attachment.policy2-role-attach: Refreshing state... [id=role-policy-attach]
+aws_iam_policy_attachment.managedpolicies-role-attach["arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess"]: Refreshing state... [id=role-policy-attach]
+aws_lambda_permission.allow_cloudwatch-job-success-31: Refreshing state... [id=terraform-20241106155852411600000010]
+aws_iam_policy_attachment.managedpolicies-role-attach["arn:aws:iam::aws:policy/IAMReadOnlyAccess"]: Refreshing state... [id=role-policy-attach]
+aws_iam_policy_attachment.managedpolicies-role-attach["arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]: Refreshing state... [id=role-policy-attach]
+aws_iam_policy_attachment.managedpolicies-role-attach["arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"]: Refreshing state... [id=role-policy-attach]
+aws_lambda_permission.allow_cloudwatch-job-success-51: Refreshing state... [id=terraform-2024110615585239310000000f]
+aws_lambda_permission.allow_cloudwatch-job-success: Refreshing state... [id=terraform-20241106155852546600000015]
+aws_iam_policy_attachment.policy1-role-attach: Refreshing state... [id=role-policy-attach]
+aws_lambda_permission.allow_cloudwatch-job-success-marvel-user-auth-audit: Refreshing state... [id=terraform-20241106155852265500000007]
+aws_lambda_function.lambda: Refreshing state... [id=marvel-email-admins]
+aws_cloudwatch_event_target.marvel-eventbus-logs-1: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-eventbus-logs-terraform-2024110615585233220000000b]
+data.aws_iam_policy_document.log_policy: Reading...
+aws_lambda_permission.allow_cloudwatch-job-success-marvel-spotfire-cache-vizz-sync: Refreshing state... [id=terraform-2024110615585237300000000d]
+data.aws_iam_policy_document.log_policy: Read complete after 0s [id=2665322992]
+aws_lambda_function.lambda11: Refreshing state... [id=marvel-spotfire-cache-user-sync]
+aws_lambda_function.lambda14: Refreshing state... [id=marvel-user-auth-audit]
+aws_lambda_function.lambda9: Refreshing state... [id=marvel-ldap-sync]
+aws_lambda_function.lambda12: Refreshing state... [id=marvel-spotfire-cache-vizz-sync]
+aws_cloudwatch_event_bus_policy.crossaccount-attach: Refreshing state... [id=itx-cer-marvel-eventbus]
+aws_lambda_permission.allow_cloudwatch-job-failure: Refreshing state... [id=terraform-20241106155852260500000006]
+aws_lambda_permission.marvel-new-catalog-item-41: Refreshing state... [id=terraform-20241106155852118600000002]
+aws_lambda_function.lambda2: Refreshing state... [id=marvel-rr-trigger]
+aws_lambda_function.lambda16: Refreshing state... [id=marvel-update-study-task-review-counts]
+aws_lambda_function.lambda15: Refreshing state... [id=marvel-data-review-records]
+aws_lambda_function.lambda5: Refreshing state... [id=marvel-study-data-refresh]
+aws_cloudwatch_log_resource_policy.event_log_policy: Refreshing state... [id=var.logpolicy]
+aws_cloudwatch_event_target.marvel-new-catalog-target-40: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-new-catalog-item-terraform-20241106155852131700000003]
+aws_cloudwatch_event_target.databricks-job-success-30: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-success-terraform-20241106155852542500000013]
+aws_cloudwatch_event_target.cron-60: Refreshing state... [id=itx-cer-daily-trigger-0900cst-terraform-2024103006112131870000001d]
+aws_cloudwatch_event_target.databricks-job-success-80: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-success-terraform-20241106155852418100000011]
+aws_cloudwatch_event_target.cron: Refreshing state... [id=itx-cer-daily-trigger-0900cst-terraform-2024103006061577130000001c]
+aws_cloudwatch_event_target.databricks-job-success-1: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-success-terraform-20241106155852479300000012]
+aws_cloudwatch_event_target.databricks-job-failure: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-failure-terraform-20241106155852235100000005]
+aws_cloudwatch_event_target.ldap_110: Refreshing state... [id=marvel-ldap-sync-terraform-20241030083758512500000008]
+aws_cloudwatch_event_target.ldap-marvel-user-auth-audit: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-user-auth-events-terraform-20241106155852284000000008]
+aws_cloudwatch_event_target.databricks-job-success-marvel-spotfire-cache-vizz-sync: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-success2-terraform-2024110615585236000000000c]
+aws_cloudwatch_event_target.ldap-90: Refreshing state... [id=marvel-ldap-sync-terraform-20241030083813552800000009]
+aws_cloudwatch_event_target.databricks-job-success-50: Refreshing state... [id=arn:aws:events:us-east-1:318140511517:event-bus/itx-cer-marvel-eventbus-marvel-databricks-job-success-terraform-2024110615585721910000001b]
+aws_lambda_alias.lambda16-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:318140511517:function:marvel-update-study-task-review-counts:LATEST]
+aws_lambda_provisioned_concurrency_config.concurrency-16: Refreshing state... [id=marvel-update-study-task-review-counts,LATEST]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # aws_lambda_function.lambda5 will be updated in-place
+  ~ resource "aws_lambda_function" "lambda5" {
+        id                             = "marvel-study-data-refresh"
+      ~ layers                         = [
+            "arn:aws:lambda:us-east-1:318140511517:layer:marvel-python-package:5",
+          - "arn:aws:lambda:us-east-1:336392948345:layer:AWSSDKPandas-Python38:27",
+        ]
+        tags                           = {}
+        # (28 unchanged attributes hidden)
+
+        # (5 unchanged blocks hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
