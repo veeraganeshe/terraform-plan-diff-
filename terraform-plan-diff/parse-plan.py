@@ -63,6 +63,10 @@ def print_summary_to_console(plan_summary, summary, env):
 def write_summary_to_csv(summary, env, plan_summary, filename=None):
     timestamp = datetime.now()
     timestamp_str = timestamp.strftime("%Y-%m-%d %H:%M:%S")
+
+    # Ensure exports folder exists
+    os.makedirs("exports", exist_ok=True)
+    
     filename = filename or os.path.join("exports", f"plan_summary_{env}_{timestamp.strftime('%Y-%m-%d_%H-%M-%S')}.csv")
 
     with open(filename, mode="w", newline='', encoding="utf-8") as csvfile:
