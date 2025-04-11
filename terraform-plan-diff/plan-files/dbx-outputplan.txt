@@ -1,1 +1,1904 @@
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # databricks_job.export_to_file_job will be updated in-place
+  ~ resource "databricks_job" "export_to_file_job" {
+        id                        = "1026327683499606"
+        name                      = "Export_To_File_Job"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          + job_cluster_key           = "export_job_cluster"
+          ~ task_key                  = "export_child_medium" -> "pre_process"
+            # (9 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "pre_process" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          - for_each_task {
+              - concurrency = 10 -> null
+              - inputs      = "{{tasks.pre_process.values.dta_list}}" -> null
+
+              - task {
+                  - disable_auto_optimization = false -> null
+                  - job_cluster_key           = "file_export_medium_cluster" -> null
+                  - max_retries               = 0 -> null
+                  - min_retry_interval_millis = 0 -> null
+                  - retry_on_timeout          = false -> null
+                  - run_if                    = "ALL_SUCCESS" -> null
+                  - task_key                  = "export_child_iteration_medium" -> null
+                  - timeout_seconds           = 0 -> null
+                    # (3 unchanged attributes hidden)
+
+                  - email_notifications {
+                      - no_alert_for_skipped_runs              = false -> null
+                      - on_duration_warning_threshold_exceeded = [] -> null
+                      - on_failure                             = [] -> null
+                      - on_start                               = [] -> null
+                      - on_streaming_backlog_exceeded          = [] -> null
+                      - on_success                             = [] -> null
+                    }
+
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "xport" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "pyreadstat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "openpyxl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "rwslib" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "s3fs" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "furl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "sas7bdat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+
+                  - notebook_task {
+                      - base_parameters = {
+                          - "datamodel"                 = "{{input}}"
+                          - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                          - "task_name"                 = "{{task.name}}"
+                          - "task_run_id"               = "{{task.run_id}}"
+                        } -> null
+                      - notebook_path   = "/Shared/CDR_DBX/export/iteration" -> null
+                      - source          = "WORKSPACE" -> null
+                        # (1 unchanged attribute hidden)
+                    }
+
+                  - webhook_notifications {
+                    }
+                }
+            }
+
+          + library {
+              + pypi {
+                  + package = "xport"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "pyreadstat"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "openpyxl"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "rwslib"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "s3fs"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "furl"
+                }
+            }
+
+          + notebook_task {
+              + base_parameters = {
+                  + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  + "task_name"                 = "{{task.name}}"
+                  + "task_run_id"               = "{{task.run_id}}"
+                }
+              + notebook_path   = "/Shared/CDR_DBX/export/pre_process"
+              + source          = "WORKSPACE"
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          - job_cluster_key           = "export_job_cluster" -> null
+          ~ task_key                  = "post_process" -> "export_child_medium"
+            # (9 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "export_child_medium" -> "pre_process"
+                # (1 unchanged attribute hidden)
+            }
+
+          + for_each_task {
+              + concurrency = 10
+              + inputs      = "{{tasks.pre_process.values.dta_list}}"
+
+              + task {
+                  + job_cluster_key = "file_export_medium_cluster"
+                  + run_if          = "ALL_SUCCESS"
+                  + task_key        = "export_child_iteration_medium"
+                  + timeout_seconds = 0
+
+                  + email_notifications {}
+
+                  + library {
+                      + pypi {
+                          + package = "xport"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "pyreadstat"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "openpyxl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "rwslib"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "s3fs"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "furl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "sas7bdat"
+                        }
+                    }
+
+                  + notebook_task {
+                      + base_parameters = {
+                          + "datamodel"                 = "{{input}}"
+                          + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                          + "task_name"                 = "{{task.name}}"
+                          + "task_run_id"               = "{{task.run_id}}"
+                        }
+                      + notebook_path   = "/Shared/CDR_DBX/export/iteration"
+                      + source          = "WORKSPACE"
+                    }
+
+                  + webhook_notifications {
+                    }
+                }
+            }
+
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "xport" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "pyreadstat" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "openpyxl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "rwslib" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "s3fs" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "furl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          - notebook_task {
+              - base_parameters = {
+                  - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  - "task_name"                 = "{{task.name}}"
+                  - "task_run_id"               = "{{task.run_id}}"
+                } -> null
+              - notebook_path   = "/Shared/CDR_DBX/export/post_process" -> null
+              - source          = "WORKSPACE" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "pre_process" -> "post_process"
+            # (10 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "export_child_medium"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/export/pre_process" -> "/Shared/CDR_DBX/export/post_process"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+
+        # (22 unchanged blocks hidden)
+    }
+
+  # databricks_job.export_to_table_job will be updated in-place
+  ~ resource "databricks_job" "export_to_table_job" {
+        id                        = "143112814441043"
+        name                      = "Export_To_Table_Job"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          + job_cluster_key           = "File_Ingestion_Parent_Job_Cluster"
+          ~ task_key                  = "ingestion_child_medium" -> "pre_process"
+            # (9 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "pre_process" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          - for_each_task {
+              - concurrency = 5 -> null
+              - inputs      = "{{tasks.pre_process.values.dta_list}}" -> null
+
+              - task {
+                  - disable_auto_optimization = false -> null
+                  - job_cluster_key           = "File_Ingestion_Parent_Job_Cluster" -> null
+                  - max_retries               = 0 -> null
+                  - min_retry_interval_millis = 0 -> null
+                  - retry_on_timeout          = false -> null
+                  - run_if                    = "ALL_SUCCESS" -> null
+                  - task_key                  = "ingestion_child_medium_iteration" -> null
+                  - timeout_seconds           = 0 -> null
+                    # (3 unchanged attributes hidden)
+
+                  - email_notifications {
+                      - no_alert_for_skipped_runs              = false -> null
+                      - on_duration_warning_threshold_exceeded = [] -> null
+                      - on_failure                             = [] -> null
+                      - on_start                               = [] -> null
+[O                      - on_streaming_backlog_exceeded          = [] -> null
+                      - on_success                             = [] -> null
+                    }
+
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "openpyxl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "furl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "rwslib" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "xport" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "pyreadstat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "s3fs" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+
+                  - notebook_task {
+                      - base_parameters = {
+                          - "datamodel"                 = "{{input}}"
+                          - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                          - "task_name"                 = "{{task.name}}"
+                          - "task_run_id"               = "{{task.run_id}}"
+                        } -> null
+                      - notebook_path   = "/Shared/CDR_DBX/export/iteration" -> null
+                      - source          = "WORKSPACE" -> null
+                        # (1 unchanged attribute hidden)
+                    }
+
+                  - webhook_notifications {
+                    }
+                }
+            }
+
+          + library {
+              + pypi {
+                  + package = "xport"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "pyreadstat"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "openpyxl"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "rwslib"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "s3fs"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "furl"
+                }
+            }
+
+          + notebook_task {
+              + base_parameters = {
+                  + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  + "task_name"                 = "{{task.name}}"
+                  + "task_run_id"               = "{{task.run_id}}"
+                }
+              + notebook_path   = "/Shared/CDR_DBX/export/pre_process"
+              + source          = "WORKSPACE"
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          - job_cluster_key           = "File_Ingestion_Parent_Job_Cluster" -> null
+          ~ task_key                  = "post_process" -> "ingestion_child_medium"
+            # (9 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "ingestion_child_medium" -> "pre_process"
+                # (1 unchanged attribute hidden)
+            }
+
+          + for_each_task {
+              + concurrency = 5
+              + inputs      = "{{tasks.pre_process.values.dta_list}}"
+
+              + task {
+                  + job_cluster_key = "File_Ingestion_Parent_Job_Cluster"
+                  + run_if          = "ALL_SUCCESS"
+                  + task_key        = "ingestion_child_medium_iteration"
+                  + timeout_seconds = 0
+
+                  + email_notifications {}
+
+                  + library {
+                      + pypi {
+                          + package = "openpyxl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "furl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "rwslib"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "xport"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "pyreadstat"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "s3fs"
+                        }
+                    }
+
+                  + notebook_task {
+                      + base_parameters = {
+                          + "datamodel"                 = "{{input}}"
+                          + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                          + "task_name"                 = "{{task.name}}"
+                          + "task_run_id"               = "{{task.run_id}}"
+                        }
+                      + notebook_path   = "/Shared/CDR_DBX/export/iteration"
+                      + source          = "WORKSPACE"
+                    }
+
+                  + webhook_notifications {
+                    }
+                }
+            }
+
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "xport" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "pyreadstat" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "openpyxl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "rwslib" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "s3fs" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "furl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          - notebook_task {
+              - base_parameters = {
+                  - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  - "task_name"                 = "{{task.name}}"
+                  - "task_run_id"               = "{{task.run_id}}"
+                } -> null
+              - notebook_path   = "/Shared/CDR_DBX/export/post_process" -> null
+              - source          = "WORKSPACE" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "pre_process" -> "post_process"
+            # (10 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "ingestion_child_medium"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/export/pre_process" -> "/Shared/CDR_DBX/export/post_process"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+
+        # (21 unchanged blocks hidden)
+    }
+
+  # databricks_job.file_ingestion_parent_new will be updated in-place
+  ~ resource "databricks_job" "file_ingestion_parent_new" {
+        id                        = "1024541663261428"
+        name                      = "CDR_File_Ingestion_Job"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          ~ task_key                  = "data_model_check" -> "sftp_pull_task"
+            # (10 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "ingestion_child_large" -> null
+                # (1 unchanged attribute hidden)
+            }
+          - depends_on {
+              - task_key = "ingestion_child_medium" -> null
+                # (1 unchanged attribute hidden)
+            }
+          - depends_on {
+              - task_key = "ingestion_child_small" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "xport" -> "pyreadstat"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "pyreadstat" -> "pysftp"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "openpyxl" -> "s3fs"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "rwslib" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "s3fs" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "furl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          ~ notebook_task {
+              ~ base_parameters = {
+                  - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}" -> null
+                  + "will_process"              = "true"
+                    # (2 unchanged elements hidden)
+                }
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/data_model_check" -> "/Shared/CDR_DBX/ingestion/sftp_pull_task"
+                # (2 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          + job_cluster_key           = "File_Ingestion_Job_Cluster"
+          ~ run_if                    = "ALL_SUCCESS" -> "AT_LEAST_ONE_FAILED"
+          ~ task_key                  = "ingestion_child_large" -> "on_foreach_failure"
+            # (8 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "pre_process" -> "ingestion_child_medium"
+                # (1 unchanged attribute hidden)
+            }
+          + depends_on {
+              + task_key = "ingestion_child_large"
+            }
+          + depends_on {
+              + task_key = "ingestion_child_small"
+            }
+
+          - for_each_task {
+              - concurrency = 5 -> null
+              - inputs      = "{{tasks.pre_process.values.file_name_list_large}}" -> null
+
+              - task {
+                  - disable_auto_optimization = false -> null
+                  - job_cluster_key           = "File_Ingestion_Large_Cluster" -> null
+                  - max_retries               = 0 -> null
+                  - min_retry_interval_millis = 0 -> null
+                  - retry_on_timeout          = false -> null
+                  - run_if                    = "ALL_SUCCESS" -> null
+                  - task_key                  = "ingestion_child_iteration_large" -> null
+                  - timeout_seconds           = 0 -> null
+                    # (3 unchanged attributes hidden)
+
+                  - email_notifications {
+                      - no_alert_for_skipped_runs              = false -> null
+                      - on_duration_warning_threshold_exceeded = [] -> null
+                      - on_failure                             = [] -> null
+                      - on_start                               = [] -> null
+                      - on_streaming_backlog_exceeded          = [] -> null
+                      - on_success                             = [] -> null
+                    }
+
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "xport" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "pyreadstat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "openpyxl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "rwslib" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "s3fs" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "furl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+
+                  - notebook_task {
+                      - base_parameters = {
+                          - "length_validation" = "false"
+                          - "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          - "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          - "table_name"        = "{{input}}"
+                          - "task_name"         = "{{task.name}}"
+                          - "task_run_id"       = "{{task.run_id}}"
+                        } -> null
+                      - notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child" -> null
+                      - source          = "WORKSPACE" -> null
+                        # (1 unchanged attribute hidden)
+                    }
+                }
+            }
+
+          + library {
+              + pypi {
+                  + package = "xport"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "pyreadstat"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "openpyxl"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "rwslib"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "s3fs"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "furl"
+                }
+            }
+
+          + notebook_task {
+              + base_parameters = {
+                  + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  + "task_name"                 = "{{task.name}}"
+                  + "task_run_id"               = "{{task.run_id}}"
+                }
+              + notebook_path   = "/Shared/CDR_DBX/ingestion/on_foreach_failure"
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "ingestion_child_medium" -> "is_file_available"
+            # (10 unchanged attributes hidden)
+
+          + condition_task {
+              + left  = "{{tasks.sftp_pull_task.values.will_process}}"
+              + op    = "EQUAL_TO"
+              + right = "true"
+            }
+
+          ~ depends_on {
+              ~ task_key = "pre_process" -> "sftp_pull_task"
+                # (1 unchanged attribute hidden)
+            }
+
+          - for_each_task {
+              - concurrency = 10 -> null
+              - inputs      = "{{tasks.pre_process.values.file_name_list_medium}}" -> null
+
+              - task {
+                  - disable_auto_optimization = false -> null
+                  - job_cluster_key           = "File_Ingestion_Job_Cluster" -> null
+                  - max_retries               = 0 -> null
+                  - min_retry_interval_millis = 0 -> null
+                  - retry_on_timeout          = false -> null
+                  - run_if                    = "ALL_SUCCESS" -> null
+                  - task_key                  = "ingestion_child_iteration_medium" -> null
+                  - timeout_seconds           = 0 -> null
+                    # (3 unchanged attributes hidden)
+
+                  - email_notifications {
+                      - no_alert_for_skipped_runs              = false -> null
+                      - on_duration_warning_threshold_exceeded = [] -> null
+                      - on_failure                             = [] -> null
+                      - on_start                               = [] -> null
+                      - on_streaming_backlog_exceeded          = [] -> null
+                      - on_success                             = [] -> null
+                    }
+
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "xport" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "pyreadstat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "openpyxl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "rwslib" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "s3fs" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "furl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+
+                  - notebook_task {
+                      - base_parameters = {
+                          - "length_validation" = "false"
+                          - "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          - "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          - "table_name"        = "{{input}}"
+                          - "task_name"         = "{{task.name}}"
+                          - "task_run_id"       = "{{task.run_id}}"
+                        } -> null
+                      - notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child" -> null
+                      - source          = "WORKSPACE" -> null
+                        # (1 unchanged attribute hidden)
+                    }
+                }
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          + job_cluster_key           = "File_Ingestion_Job_Cluster"
+          ~ task_key                  = "ingestion_child_small" -> "pre_process"
+            # (9 unchanged attributes hidden)
+
+          ~ depends_on {
+              + outcome  = "true"
+              ~ task_key = "pre_process" -> "is_file_available"
+            }
+
+          - for_each_task {
+              - concurrency = 15 -> null
+              - inputs      = "{{tasks.pre_process.values.file_name_list_small}}" -> null
+
+              - task {
+                  - disable_auto_optimization = false -> null
+                  - job_cluster_key           = "File_Ingestion_Small_Cluster" -> null
+                  - max_retries               = 0 -> null
+                  - min_retry_interval_millis = 0 -> null
+                  - retry_on_timeout          = false -> null
+                  - run_if                    = "ALL_SUCCESS" -> null
+                  - task_key                  = "ingestion_child_iteration_small" -> null
+                  - timeout_seconds           = 0 -> null
+                    # (3 unchanged attributes hidden)
+
+                  - email_notifications {
+                      - no_alert_for_skipped_runs              = false -> null
+                      - on_duration_warning_threshold_exceeded = [] -> null
+                      - on_failure                             = [] -> null
+                      - on_start                               = [] -> null
+                      - on_streaming_backlog_exceeded          = [] -> null
+                      - on_success                             = [] -> null
+                    }
+
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "xport" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "pyreadstat" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "openpyxl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "rwslib" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "s3fs" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+                  - library {
+                        # (4 unchanged attributes hidden)
+
+                      - pypi {
+                          - package = "furl" -> null
+                            # (1 unchanged attribute hidden)
+                        }
+                    }
+
+                  - notebook_task {
+                      - base_parameters = {
+                          - "length_validation" = "false"
+                          - "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          - "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          - "table_name"        = "{{input}}"
+                          - "task_name"         = "{{task.name}}"
+                          - "task_run_id"       = "{{task.run_id}}"
+                        } -> null
+                      - notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child" -> null
+                      - source          = "WORKSPACE" -> null
+                        # (1 unchanged attribute hidden)
+                    }
+                }
+            }
+
+          + library {
+              + pypi {
+                  + package = "xport"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "pyreadstat"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "openpyxl"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "rwslib"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "s3fs"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "furl"
+                }
+            }
+
+          + notebook_task {
+              + base_parameters = {
+                  + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  + "task_name"                 = "{{task.name}}"
+                  + "task_run_id"               = "{{task.run_id}}"
+                }
+              + notebook_path   = "/Shared/CDR_DBX/ingestion/pre_process"
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "is_file_available" -> "ingestion_child_large"
+            # (10 unchanged attributes hidden)
+
+          - condition_task {
+              - left  = "{{tasks.sftp_pull_task.values.will_process}}" -> null
+              - op    = "EQUAL_TO" -> null
+              - right = "true" -> null
+            }
+
+          ~ depends_on {
+              ~ task_key = "sftp_pull_task" -> "pre_process"
+                # (1 unchanged attribute hidden)
+            }
+
+          + for_each_task {
+              + concurrency = 5
+              + inputs      = "{{tasks.pre_process.values.file_name_list_large}}"
+
+              + task {
+                  + job_cluster_key = "File_Ingestion_Large_Cluster"
+                  + run_if          = "ALL_SUCCESS"
+                  + task_key        = "ingestion_child_iteration_large"
+
+                  + library {
+                      + pypi {
+                          + package = "xport"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "pyreadstat"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "openpyxl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "rwslib"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "s3fs"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "furl"
+                        }
+                    }
+
+                  + notebook_task {
+                      + base_parameters = {
+                          + "length_validation" = "false"
+                          + "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          + "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          + "table_name"        = "{{input}}"
+                          + "task_name"         = "{{task.name}}"
+                          + "task_run_id"       = "{{task.run_id}}"
+                        }
+                      + notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child"
+                    }
+                }
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          - job_cluster_key           = "File_Ingestion_Job_Cluster" -> null
+          ~ task_key                  = "merge_and_post_process" -> "ingestion_child_medium"
+            # (9 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "data_model_check" -> "pre_process"
+                # (1 unchanged attribute hidden)
+            }
+
+          + for_each_task {
+              + concurrency = 10
+              + inputs      = "{{tasks.pre_process.values.file_name_list_medium}}"
+
+              + task {
+                  + job_cluster_key = "File_Ingestion_Job_Cluster"
+                  + run_if          = "ALL_SUCCESS"
+                  + task_key        = "ingestion_child_iteration_medium"
+
+                  + library {
+                      + pypi {
+                          + package = "xport"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "pyreadstat"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "openpyxl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "rwslib"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "s3fs"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "furl"
+                        }
+                    }
+
+                  + notebook_task {
+                      + base_parameters = {
+                          + "length_validation" = "false"
+                          + "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          + "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          + "table_name"        = "{{input}}"
+                          + "task_name"         = "{{task.name}}"
+                          + "task_run_id"       = "{{task.run_id}}"
+                        }
+                      + notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child"
+                    }
+                }
+            }
+
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "xport" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "pyreadstat" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "openpyxl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "rwslib" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "s3fs" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "furl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          - notebook_task {
+              - base_parameters = {
+                  - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  - "task_name"                 = "{{task.name}}"
+                  - "task_run_id"               = "{{task.run_id}}"
+                } -> null
+              - notebook_path   = "/Shared/CDR_DBX/ingestion/merge_and_post_process" -> null
+              - source          = "WORKSPACE" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          - job_cluster_key           = "File_Ingestion_Job_Cluster" -> null
+          ~ run_if                    = "AT_LEAST_ONE_FAILED" -> "ALL_SUCCESS"
+          ~ task_key                  = "on_foreach_failure" -> "ingestion_child_small"
+            # (8 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "ingestion_child_large" -> "pre_process"
+                # (1 unchanged attribute hidden)
+            }
+          - depends_on {
+              - task_key = "ingestion_child_medium" -> null
+                # (1 unchanged attribute hidden)
+            }
+          - depends_on {
+              - task_key = "ingestion_child_small" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          + for_each_task {
+              + concurrency = 15
+              + inputs      = "{{tasks.pre_process.values.file_name_list_small}}"
+
+              + task {
+                  + job_cluster_key = "File_Ingestion_Small_Cluster"
+                  + run_if          = "ALL_SUCCESS"
+                  + task_key        = "ingestion_child_iteration_small"
+
+                  + library {
+                      + pypi {
+                          + package = "xport"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "pyreadstat"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "openpyxl"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "rwslib"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "s3fs"
+                        }
+                    }
+                  + library {
+                      + pypi {
+                          + package = "furl"
+                        }
+                    }
+
+                  + notebook_task {
+                      + base_parameters = {
+                          + "length_validation" = "false"
+                          + "parent_job_run_id" = "{{job.parameters.job_run_id}}"
+                          + "study_pipeline_id" = "{{tasks.pre_process.values.study_pipeline_id}}"
+                          + "table_name"        = "{{input}}"
+                          + "task_name"         = "{{task.name}}"
+                          + "task_run_id"       = "{{task.run_id}}"
+                        }
+                      + notebook_path   = "/Shared/CDR_DBX/ingestion/ingestion_child"
+                    }
+                }
+            }
+
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "xport" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "pyreadstat" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "openpyxl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "rwslib" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "s3fs" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          - library {
+                # (4 unchanged attributes hidden)
+
+              - pypi {
+                  - package = "furl" -> null
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          - notebook_task {
+              - base_parameters = {
+                  - "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  - "task_name"                 = "{{task.name}}"
+                  - "task_run_id"               = "{{task.run_id}}"
+                } -> null
+              - notebook_path   = "/Shared/CDR_DBX/ingestion/on_foreach_failure" -> null
+              - source          = "WORKSPACE" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "pre_process" -> "data_model_check"
+            # (10 unchanged attributes hidden)
+
+          ~ depends_on {
+              - outcome  = "true" -> null
+              ~ task_key = "is_file_available" -> "ingestion_child_medium"
+            }
+          + depends_on {
+              + task_key = "ingestion_child_large"
+            }
+          + depends_on {
+              + task_key = "ingestion_child_small"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/pre_process" -> "/Shared/CDR_DBX/ingestion/data_model_check"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "sftp_pull_task" -> "merge_and_post_process"
+            # (10 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "data_model_check"
+            }
+
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "pyreadstat" -> "xport"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "pysftp" -> "pyreadstat"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "s3fs" -> "openpyxl"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "rwslib"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "s3fs"
+                }
+            }
+          + library {
+              + pypi {
+                  + package = "furl"
+                }
+            }
+
+          ~ notebook_task {
+              ~ base_parameters = {
+                  + "study_pipeline_display_id" = "{{job.parameters.pipeline_display_id}}"
+                  - "will_process"              = "true" -> null
+                    # (2 unchanged elements hidden)
+                }
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/sftp_pull_task" -> "/Shared/CDR_DBX/ingestion/merge_and_post_process"
+                # (2 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+
+        # (21 unchanged blocks hidden)
+    }
+
+  # databricks_job.rave_ingestion_parent_cdr will be updated in-place
+  ~ resource "databricks_job" "rave_ingestion_parent_cdr" {
+        id                        = "737158871078676"
+        name                      = "CDR_Rave_Ingestion_Job_Clinical_View"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          ~ task_key                  = "data_model_check" -> "pre_process"
+            # (10 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "ingestion_child" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/data_model_check" -> "/Shared/CDR_DBX/ingestion/pre_process_rave"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ run_if                    = "ALL_SUCCESS" -> "AT_LEAST_ONE_FAILED"
+          ~ task_key                  = "merge_and_post_process" -> "on_foreach_failure"
+            # (9 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "data_model_check" -> "ingestion_child"
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "furl" -> "xport"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "openpyxl" -> "pyreadstat"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "rwslib" -> "openpyxl"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "xport" -> "rwslib"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "pyreadstat" -> "s3fs"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "s3fs" -> "furl"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/merge_and_post_process" -> "/Shared/CDR_DBX/ingestion/on_foreach_failure"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ run_if                    = "AT_LEAST_ONE_FAILED" -> "ALL_SUCCESS"
+          ~ task_key                  = "on_foreach_failure" -> "data_model_check"
+            # (9 unchanged attributes hidden)
+
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "xport" -> "furl"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "pyreadstat" -> "openpyxl"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "openpyxl" -> "rwslib"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "rwslib" -> "xport"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "s3fs" -> "pyreadstat"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+          ~ library {
+                # (4 unchanged attributes hidden)
+
+              ~ pypi {
+                  ~ package = "furl" -> "s3fs"
+                    # (1 unchanged attribute hidden)
+                }
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/on_foreach_failure" -> "/Shared/CDR_DBX/ingestion/data_model_check"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (3 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "pre_process" -> "merge_and_post_process"
+            # (10 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "data_model_check"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/ingestion/pre_process_rave" -> "/Shared/CDR_DBX/ingestion/merge_and_post_process"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+
+        # (23 unchanged blocks hidden)
+    }
+
+  # databricks_job.rave_ingestion_parent_new will be updated in-place
+  ~ resource "databricks_job" "rave_ingestion_parent_new" {
+        id                        = "1107786918435505"
+        name                      = "CDR_Rave_Ingestion_Job_Audit_Records"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          ~ task_key                  = "data_model_check" -> "pre_process"
+            # (10 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "ingestion_child" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/data_model_check.py" -> "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/pre_process_rave.py"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "merge_and_post_process" -> "data_model_check"
+            # (10 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "data_model_check" -> "ingestion_child"
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/merge_and_post_process.py" -> "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/data_model_check.py"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "pre_process" -> "merge_and_post_process"
+            # (10 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "data_model_check"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/pre_process_rave.py" -> "/Shared/CDR_DBX_BKP/CDR_DBX/ingestion/merge_and_post_process.py"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (8 unchanged blocks hidden)
+        }
+
+        # (22 unchanged blocks hidden)
+    }
+
+  # databricks_job.transformation_parent_job will be updated in-place
+  ~ resource "databricks_job" "transformation_parent_job" {
+        id                        = "461425738412675"
+        name                      = "Transformation_Parent_Job"
+        # (9 unchanged attributes hidden)
+
+      ~ task {
+          ~ min_retry_interval_millis = 0 -> 900000
+          ~ task_key                  = "data_model_check" -> "dependency_task"
+            # (9 unchanged attributes hidden)
+
+          - depends_on {
+              - task_key = "iteration" -> null
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/transformation/data_model_check" -> "/Shared/CDR_DBX/transformation/dependency_check"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          - min_retry_interval_millis = 900000 -> null
+          ~ task_key                  = "dependency_task" -> "iteration"
+            # (9 unchanged attributes hidden)
+
+          + depends_on {
+              + task_key = "dependency_task"
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/transformation/dependency_check" -> "/Shared/CDR_DBX/transformation/iteration"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+      ~ task {
+          ~ task_key                  = "iteration" -> "data_model_check"
+            # (10 unchanged attributes hidden)
+
+          ~ depends_on {
+              ~ task_key = "dependency_task" -> "iteration"
+                # (1 unchanged attribute hidden)
+            }
+
+          ~ notebook_task {
+              ~ notebook_path   = "/Shared/CDR_DBX/transformation/iteration" -> "/Shared/CDR_DBX/transformation/data_model_check"
+                # (3 unchanged attributes hidden)
+            }
+
+            # (2 unchanged blocks hidden)
+        }
+
+        # (11 unchanged blocks hidden)
+    }
+
+  # databricks_notebook.Ingestion_child will be updated in-place
+  ~ resource "databricks_notebook" "Ingestion_child" {
+        id             = "/Shared/CDR_DBX/ingestion/ingestion_child"
+      ~ md5            = "00e2fec67baaff1ef166d5971b3ddb3a" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.child_transformation_task will be updated in-place
+  ~ resource "databricks_notebook" "child_transformation_task" {
+        id             = "/Shared/CDR_DBX/transformation/child_transformation_task"
+      ~ md5            = "141a83c13c94181ae5d1de4667c849c8" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.conformance_check_1 will be updated in-place
+  ~ resource "databricks_notebook" "conformance_check_1" {
+        id             = "/Shared/CDR_DBX/transformation/conformance_check"
+      ~ md5            = "a95929f8534f5d7688a59ebafad2ae34" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.data_model_check_1 will be updated in-place
+  ~ resource "databricks_notebook" "data_model_check_1" {
+        id             = "/Shared/CDR_DBX/transformation/data_model_check"
+      ~ md5            = "d6dd39868a0a3d86f5a2fbd643aac8ff" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.ingestion_steps_py will be updated in-place
+  ~ resource "databricks_notebook" "ingestion_steps_py" {
+        id             = "/Shared/CDR_DBX/ingestion/ingestion_utils/ingestion_steps"
+      ~ md5            = "d0de475e0fee68bfbf6838a053d834ca" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.iteration_2 will be updated in-place
+  ~ resource "databricks_notebook" "iteration_2" {
+        id             = "/Shared/CDR_DBX/transformation/iteration"
+      ~ md5            = "e19a95d52d2956380387753d2ce2aca5" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.merge_and_post_process_1 will be updated in-place
+  ~ resource "databricks_notebook" "merge_and_post_process_1" {
+        id             = "/Shared/CDR_DBX/transformation/merge_and_post_process"
+      ~ md5            = "1d1cc8e74bb3f9823cb2c2681a9ed317" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.submit_job will be updated in-place
+  ~ resource "databricks_notebook" "submit_job" {
+        id             = "/Shared/CDR_DBX/submit/submit_job"
+      ~ md5            = "17350694979334b3122d8ab4611fcad8" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+  # databricks_notebook.transformation_get_pipeline_parameters_child will be created
+  + resource "databricks_notebook" "transformation_get_pipeline_parameters_child" {
+      + format         = "SOURCE"
+      + id             = (known after apply)
+      + language       = "PYTHON"
+      + md5            = "different"
+      + object_id      = (known after apply)
+      + object_type    = (known after apply)
+      + path           = "/Shared/CDR_DBX/transformation/transformation_utils/transformation_get_pipeline_parameters_child"
+      + source         = "transformation/transformation_utils/transformation_get_pipeline_parameters_child.py"
+      + url            = (known after apply)
+      + workspace_path = (known after apply)
+    }
+
+  # databricks_notebook.transformation_get_pipeline_parameters_parent will be created
+  + resource "databricks_notebook" "transformation_get_pipeline_parameters_parent" {
+      + format         = "SOURCE"
+      + id             = (known after apply)
+      + language       = "PYTHON"
+      + md5            = "different"
+      + object_id      = (known after apply)
+      + object_type    = (known after apply)
+      + path           = "/Shared/CDR_DBX/transformation/transformation_utils/transformation_get_pipeline_parameters_parent"
+      + source         = "transformation/transformation_utils/transformation_get_pipeline_parameters_parent.py"
+      + url            = (known after apply)
+      + workspace_path = (known after apply)
+    }
+
+  # databricks_notebook.transformation_utils will be updated in-place
+  ~ resource "databricks_notebook" "transformation_utils" {
+        id             = "/Shared/CDR_DBX/transformation/transformation_utils/transformation_utils"
+      ~ md5            = "41c06210947842d77182920fff60b4e4" -> "different"
+        # (8 unchanged attributes hidden)
+    }
+
+Plan: 2 to add, 15 to change, 0 to destroy.
+╷
+│ Warning: Deprecated attribute
+│
+│   on gr2.tf line 44, in resource "databricks_job" "monitor_study_specific_report":
+│   44:                 format,control_run_state,always_running,continuous["pause_status"],job_cluster,task,notebook_task,new_cluster,run_as["user_name"],schedule["pause_status"]
+│
+│ The attribute "always_running" is deprecated. Refer to the provider
+│ documentation for details.
+│
+│ (and 35 more similar warnings elsewhere)
+╵
+
 
